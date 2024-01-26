@@ -6,6 +6,15 @@ author: Suryaansh Jain, Rishit D, Rajiv Chitale, Anshul Sangrame
 # [Introduction](#introduction)
 ## [Purpose](#purpose)
 ## [Scope](#scope)
+    The features of the Auction Site are as follows:
+    - Login and Signup for users
+    - Create Auction Rooms (Public/Private)
+    - Join Auction Rooms (Public/Private)
+    - Bid on items in Auction Rooms
+    - Search for items
+    - Recommendation System using KNN
+    - End Auctions
+    - View Auction History
 ## [Overview](#overview)
 # [Overall Description](#overall-description)
 ## [Product Perspective](#product-perspective)
