@@ -1,6 +1,7 @@
-Sure, let's expand and add more detail to each section of the Software Requirements Specification (SRS) for the Auction Site.
-
 ---
+title: (G3) SRS for Auction Site
+author: Suryaansh Jain, Rishit D, Rajiv Chitale, Anshul Sangrame
+...
 
 # [Introduction](#introduction)
 The introduction section provides a high-level overview of the SRS document.
