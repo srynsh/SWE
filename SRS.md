@@ -70,6 +70,143 @@ This section outlines detailed functional and non-functional requirements for th
    - User accounts shall be verified via email confirmation to prevent unauthorized access.
    - Users shall have the option to update their profile information, including contact details and preferences.
 
+---------------------------------------
+
+#### Authentication:
+| Function          | Description                                           |
+| :---------------: | :---------------------------------------------------: |
+| Sign Up           | Set name, username, password, contacts, interests     |
+| Verify Account    | Authenicate registration or password reset            |
+| Log In            | Direct user to dashboard given correct credentials    |
+| Edit Profile      | Allows user to edit details of profile                |
+| Forgot Password   | Allows user to reset password through contacts        |
+
+#### Dashboard:
+| Function          | Description                                               |
+| :---------------: | :-------------------------------------------------------: |
+| Create Auction    | List items + clauses and schedule auction time            |
+| Recommendations   | Provides user with auctions user might be interested in   |
+| Search Options    | Allows user to search by tags, description, time, price   |
+| View History      | Allows user to view completed and scheduled auctions      |
+| View Other Profile| Allows user to view profiles of other users               |
+
+#### [Authentication Use-Cases](#authentication-use-cases)
+- **Use Case 1**: Sign Up
+   - *Primary Agent*: User
+   - *Preconditions*: None
+   - *Main Flow*:
+      1. User enters the website and is prompted to register themself on the website as an account if they are not registered.
+      2. User is asked to give mandatory details such as username, password, name, email contact etc.
+      3. User is also prompted to additional details such as mobile contact details, interests etc.
+      4. User submits details and waits for *verification*.
+   - *Excpetions*:
+      1. User chooses an already existing username. User is then prompted to choose another username.
+      2. User sets a password which has insufficient strength. User is then prompted to choose new password.
+      3. Both instances of password do not match. User is then prompted to recheck passwords.
+      4. All mandatory fields have not been filled. User is then prompted to fill all mandatory fields.
+
+- **Use Case 2**: Log In
+   - *Primary Agent*: User
+   - *Preconditions*: Have a registered account
+   - *Main Flow*:
+      1. User enters the website and is prompted to log in if they have been registered on the website.
+      2. User is prompted to enter username and password to log on to the website.
+      3. If correct credentials are provided, the user is directed to their dashboard page.
+   - *Excpetions*:
+      1. User enters incorrect credentials. User is then prompted to enter correct credentials.
+      2. User forgets password and is prompted to the *forgot password* routine.
+
+- **Use Case 3**: Forgot Password
+   - *Primary Agent*: Server
+   - *Preconditions*: Called when user wants to verify account after registration
+   - *Main Flow*:
+      1. The server sends a message via backup contacts - email or mobile.
+      2. The user is prompted to click on a link from the afore-mentioned contacts to reset password.
+      3. The user is then requested to confirm new password.
+   - *Exceptions*:
+      1. Both instances of password do not match. User is then prompted to recheck passwords.
+      2. User sets a password which has insufficient strength. User is then prompted to choose new password.
+
+- **Use Case 4**: Edit Profile
+   - *Primary Agent*: User
+   - *Preconditions*: User is logged in
+   - *Main Flow*:
+      1. User clicks on profile details from the dashboard and chooses to edit profile details excluding username.
+      2. User fills in new details in a form with details already filled in.
+      3. User then submits details and profile changes are updated.
+   - *Exceptions*:
+      1. Mandatory fields are not filled. User is then prompted to fill all mandatory fields.
+
+- **Use Case 5**: Verify Account
+   - *Primary Agent*: Server
+   - *Preconditions*: Called when user has completed filling registration details
+   - *Main Flow*:
+      1. The server sends a message via backup contacts - email or mobile.
+      2. The user is prompted to click on a link to redirect themselves to the website's dashboard. The user is also automatically logged in.
+   - *Exceptions*:
+      1. The link for verification has been timed out. User must re-register account.
+
+#### [Dashboard](#dashboard)
+- **Use Case 1**: Create Auction
+   - *Primary Agent*: User
+   - *Preconditions*: User is logged in
+   - *Main Flow*:
+      1. User chooses to create an auction and schedule it for a stipulated time.
+      2. User is then directed to a page which prompts user to enter details of the auction in stages.
+      3. User is first prompted to enter details for all items to be presented in the auction. Every item is provided with a name, description, relevant tags, starting price, optional clauses attached etc.
+      4. User is then prompted to enter general details for the auction. Details include minimum increment for each bid, start-time, end-time, return policies and other clauses.
+      5. User is finally prompted to fill a questionnaire to generate the license for the auction.
+   - *Exceptions*:
+      1. Mandatory fields have not been filled. User is then prompted to fill missing mandatory fields.
+      2. No items have been added. User is then prompted to add atleast one item in the auction.
+      3. Time window entered has already started or passed. User is then prompted to enter a valid time-window.
+
+- **Use Case 2**: Recommendations 
+   - *Primary Agent*: Server
+   - *Preconditions*: User is logged in, presently at the dashboard
+   - *Main Flow*:
+      1. User is shown a list of upcoming auctions which are relevant to user interests, search history, auction history etc.
+      2. User can toggle *Number of Auctions per Page* or click on *View More* to view more auctions and their details if necessary.
+      3. User can select one of the auctions to view details of all items listed on the auction.
+      4. If interested and the auction is currently going on, the user can click on *Join* to enter the virtual auction-room. The user is first shown the agreement clause to join the auction. The user must also accept the agreement clause before entering the auction-room.
+   - *Exceptions*:
+      1. User does not agree to the agreement clause. The user is then prompted to agree to the clauses.
+
+- **Use Case 3**: Search Options
+   - *Primary Agent*: User
+   - *Preconditions*: User is logged in
+   - *Main Flow*:
+      1. User is allowed to search for multiple relevant auctions by various fields. These fields include relevant tags, item description, start-time, end-time, starting prices, popularity (number of attendees) etc.
+      2. User is then prompted to click *Search* and is then presented with a list of relevant auctions.
+      3. User can toggle *Number of Auctions per Page* or click on *View More* to view more auctions and their details if necessary.
+      4. User can select one of the auctions to view details of all items listed on the auction.
+      5. If interested and the auction is currently going on, the user can click on *Join* to enter the virtual auction-room. The user is first shown the agreement clause to join the auction. The user must also accept the agreement clause before entering the auction-room.
+   - *Exceptions*:
+      1. No search filter is applied. The user is then prompted to make atleast one field non-empty.
+      2. User does not agree to the agreement clause. The user is then prompted to agree to the clauses.
+      3. No match occurs. The user is shown text conveying there are no matches and prompts them to enter alternate key words.
+
+- **Use Case 4**: View Auction History
+   - *Primary Agent*: User
+   - *Preconditions*: User is logged in
+   - *Main Flow*:
+      1. User chooses to view auction history by clicking on an appropriate link from the dashboard. 
+      2. The user is shown a list of auctions which the user has either attended or hosted.
+      3. The user can select one of the auctions and is directed to the auction page details.
+      4. Details include purchases made in the auction (if any), time spent on the auction date etc. (if the user participated in said auction)
+      5. Details include purchasees, amount paid for all items sold in the auction, and other details entered by the user when the auction was scheduled.
+   - *Exceptions*:
+      1. No history exists. The user is prompted to search for auctions to join or is prompted to create an auction.
+
+- **Use Case 5**: View Other Profiles
+   - *Primary Agent*: User
+   - *Preconditions*: User is logged in
+   - *Main Flow*:
+      1. User can access pubic profile details by clicking usernames from auction detail pages or auction history pages.
+      2. The user can access the auctions that other users have hosted or attended.
+
+---------------------------------------
+
 ### Auction Management
 
 - **Use case 1:** Adding items for auction
