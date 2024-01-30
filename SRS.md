@@ -70,7 +70,7 @@ This section outlines detailed functional and non-functional requirements for th
    - User accounts shall be verified via email confirmation to prevent unauthorized access.
    - Users shall have the option to update their profile information, including contact details and preferences.
 
-### Auction Room Management
+### Auction Management
 
 - **Use case 1:** Adding items for auction
    - *Primary actor:* Auctioneer
@@ -106,10 +106,8 @@ This section outlines detailed functional and non-functional requirements for th
    - *Pre-condition:* Internet connection, bidder logged in, scheduled end time has reached
    - *Main scenario:*
       1. The server selects the highest bidder.
-      2. The server sends an email to the auctioneer and highest bidder regarding the final bid price.
-      3. The server publishes the highest bidder and final bid price on the auction page and adds the auction to history.
-
-   
+      2. The server sends an email to the auctioneer and highest bidder regarding the final bid price and each other's contact details.
+      3. The server publishes the highest bidder and final bid price on the auction page and adds the auction to history.   
 
 ### Bidding Functionality
    - Users shall be able to place bids on items within active auction rooms, adhering to predefined bid increments and reserve prices.
