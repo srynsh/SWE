@@ -10,7 +10,7 @@ The introduction section provides a high-level overview of the SRS document.
 The purpose of this document is to define the functional and non-functional requirements for the development of an Auction Site. It serves as a reference guide for the development team, stakeholders, and QA personnel involved in the project.
 
 ## [Scope](#scope)
-The Auction Site aims to be a comprehensive online platform that facilitates auctions for a diverse range of items. It provides users with the ability to create, manage, and participate in auctions in real time. The platform will feature robust security measures, efficient bidding mechanisms, and an intuitive user interface. Key features include user authentication, auction room creation, bidding, search functionality, recommendation systems, auction management, and viewing of auction history.
+The Auction Site aims to be a comprehensive online platform that facilitates auctions for a diverse range of items. It provides users with the ability to create, manage, and participate in auctions in real-time. The platform will feature robust security measures, efficient bidding mechanisms, and an intuitive user interface. Key features include user authentication, auction room creation, bidding, search functionality, recommendation systems, auction management, and viewing of auction history.
 
 # [Overall Description](#overall-description)
 This section offers a comprehensive overview of the system.
@@ -39,7 +39,7 @@ The Auction Site operates as a standalone web application accessible via standar
 - Search results will be displayed in a structured manner, providing relevant item details and auction room information.
 
 ### Recommendation System:
-- A recommendation engine based on K-nearest neighbors (KNN) algorithm will provide personalized item suggestions to users based on their past activity, preferences, and bidding history.
+- A recommendation engine based on the K-nearest neighbors (KNN) algorithm will provide personalized item suggestions to users based on their past activity, preferences, and bidding history.
 - The recommendation system will enhance user engagement and satisfaction by showcasing relevant items of interest.
 
 ### Auction Management:
@@ -118,7 +118,7 @@ This section outlines detailed functional and non-functional requirements for th
 ## Auction Management
    - Auctioneers shall have the authority to start, pause, resume, and end auctions within designated auction rooms.
    - The system shall enforce predefined rules for auction closure, including automatic closure upon reaching the designated end time or meeting reserve prices.
-   - Auction closure notifications shall be sent to all participants, with details of winning bids and next steps for transaction completion.
+   - Auction closure notifications shall be sent to all participants, with details of winning bids and the next steps for transaction completion.
 
 ## Auction History
    - Users shall have access to their auction participation history, including details of items bid on, winning bids, and auction outcomes.
