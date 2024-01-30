@@ -10,7 +10,7 @@ The introduction section provides a high-level overview of the SRS document.
 The purpose of this document is to define the functional and non-functional requirements for the development of an Auction Site. It serves as a reference guide for the development team, stakeholders, and QA personnel involved in the project.
 
 ## [Scope](#scope)
-The Auction Site aims to be a comprehensive online platform that facilitates auctions for a diverse range of items. It provides users with the ability to create, manage, and participate in auctions in real-time. The platform will feature robust security measures, efficient bidding mechanisms, and an intuitive user interface. Key features include user authentication, auction room creation, bidding, search functionality, recommendation systems, auction management, and viewing of auction history.
+The Auction Site aims to be a comprehensive online platform that facilitates auctions for a diverse range of items. It provides users with the ability to create, manage, and participate in auctions in real time. The platform will feature robust security measures, efficient bidding mechanisms, and an intuitive user interface. Key features include user authentication, auction room creation, bidding, search functionality, recommendation systems, auction management, and viewing of auction history.
 
 # [Overall Description](#overall-description)
 This section offers a comprehensive overview of the system.
@@ -65,36 +65,62 @@ The Auction Site operates as a standalone web application accessible via standar
 This section outlines detailed functional and non-functional requirements for the Auction Site.
 
 ## [Functional Requirements](#functional-requirements)
-1. **User Management:**
+### User Management
    - The system shall provide user registration functionality, requiring users to provide valid email addresses and secure passwords.
    - User accounts shall be verified via email confirmation to prevent unauthorized access.
    - Users shall have the option to update their profile information, including contact details and preferences.
 
-2. **Auction Room Management:**
-   - Registered users shall be able to create new auction rooms, specifying auction types (public or private), duration, and item categories.
-   - Auction rooms shall display relevant information, including item descriptions, current bids, and time remaining.
-   - Auctioneers shall have access to advanced settings for configuring auction rules, reserve prices, and bid increments.
+### Auction Room Management
 
-3. **Bidding Functionality:**
+**Use case 1:** Adding items for auction
+- *Primary actor:* Auctioneer
+- *Pre-condition:* Internet connection, Auctioneer logged in
+- *Main scenario:*
+   1. The auctioneer clicks on the start new auction button.
+   2. Opens up the page to fill in auction details.
+   3. The auctioneer fills in the details of the items to be auctioned as well as the scheduled start time.
+   4. The auctioneer also mentions whether he wants the auction to be public or private
+   5. The auction is published on the website and the auctioneer is redirected to the auction page.
+   6. The notification is sent to the auctioneer 5 minutes before the scheduled start time.
+   7. If the auction is private, the notification is also sent to chosen bidders.
+   8. At the scheduled start time server starts the auction by allowing bidders to click on the enter auction room button.
+
+**Use case 2:** Entering an auction as a bidder
+- *Primary actor:* bidder
+- *Pre-condition:* Internet connection, bidder logged in
+- *Main scenario:*
+   1. The bidder clicks on enters auction button
+   2. The bidder is redirected to the auction room page where details of the auction as well as the leader board of the highest bidders will be displayed.
+
+**Use case 3:** Make a bid
+- *Primary actor:* bidder
+- *Pre-condition:* Internet connection, bidder logged in
+- *Main scenario:*
+   1. The bidder specifies the bid price
+   2. The server accepts the bid price and updates the leaderboard accordingly.
+- *Alternate Scenario*:  
+   2a. If the bid price is less than the current highest bid price then the server informs the bidder and asks to rebid.
+
+### Bidding Functionality
    - Users shall be able to place bids on items within active auction rooms, adhering to predefined bid increments and reserve prices.
    - The system shall support real-time bidding updates and notifications, alerting users of competing bids and auction status changes.
    - Bids shall be processed securely, with encryption protocols and transaction logging to ensure data integrity.
 
-4. **Search Feature:**
+### Search Feature
    - The search functionality shall allow users to search for specific items or auction rooms based on keywords, categories, and attributes.
    - Search results shall be sorted based on relevance and displayed in a structured format for easy navigation.
 
-5. **Recommendation System:**
+### Recommendation System
    - The recommendation engine shall analyze user behavior and historical data to generate personalized item suggestions.
    - Recommendations shall be based on similarity metrics derived from user profiles, bidding patterns, and item characteristics.
    - Users shall have the option to provide feedback on recommended items to improve future recommendations.
 
-6. **Auction Management:**
+## Auction Management
    - Auctioneers shall have the authority to start, pause, resume, and end auctions within designated auction rooms.
    - The system shall enforce predefined rules for auction closure, including automatic closure upon reaching the designated end time or meeting reserve prices.
    - Auction closure notifications shall be sent to all participants, with details of winning bids and next steps for transaction completion.
 
-7. **Auction History:**
+## Auction History
    - Users shall have access to their auction participation history, including details of items bid on, winning bids, and auction outcomes.
    - Historical data shall be stored securely and made accessible for reference and analysis purposes.
 
