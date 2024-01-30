@@ -87,19 +87,29 @@ This section outlines detailed functional and non-functional requirements for th
 
 - **Use case 2:** Entering an auction as a bidder
    - *Primary actor:* bidder
-   - *Pre-condition:* Internet connection, bidder logged in
+   - *Pre-condition:* Internet connection, bidder logged in, bidder is allowed to enter auction room
    - *Main scenario:*
       1. The bidder clicks on enters auction button
       2. The bidder is redirected to the auction room page where details of the auction as well as the leader board of the highest bidders will be displayed.
 
 - **Use case 3:** Make a bid
    - *Primary actor:* bidder
-   - *Pre-condition:* Internet connection, bidder logged in
+   - *Pre-condition:* Internet connection, bidder logged in, the bidder has entered the auction room
    - *Main scenario:*
       1. The bidder specifies the bid price
       2. The server accepts the bid price and updates the leaderboard accordingly.
    - *Alternate Scenario*:  
       2a. If the bid price is less than the current highest bid price then the server informs the bidder and asks to rebid.
+
+- **Use case 4:** Completing an auction
+   - *Primary actor:* Server
+   - *Pre-condition:* Internet connection, bidder logged in, scheduled end time has reached
+   - *Main scenario:*
+      1. The server selects the highest bidder.
+      2. The server sends an email to the auctioneer and highest bidder regarding the final bid price.
+      3. The server publishes the highest bidder and final bid price on the auction page and adds the auction to history.
+
+   
 
 ### Bidding Functionality
    - Users shall be able to place bids on items within active auction rooms, adhering to predefined bid increments and reserve prices.
