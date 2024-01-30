@@ -85,11 +85,11 @@ This section outlines detailed functional and non-functional requirements for th
       7. If the auction is private, the notification is also sent to chosen bidders.
       8. At the scheduled start time server starts the auction by allowing bidders to click on the enter auction room button.
 
-- **Use case 2:** Entering an auction as a bidder
-   - *Primary actor:* bidder
-   - *Pre-condition:* Internet connection, bidder logged in, bidder is allowed to enter auction room
+- **Use case 2:** Entering an auction
+   - *Primary actor:* bidder and auctioneer
+   - *Pre-condition:* Internet connection, user logged in, the user is allowed to enter the auction room
    - *Main scenario:*
-      1. The bidder clicks on enters auction button
+      1. The user clicks on enter auction button on the auction page
       2. The bidder is redirected to the auction room page where details of the auction as well as the leader board of the highest bidders will be displayed.
 
 - **Use case 3:** Make a bid
@@ -107,7 +107,15 @@ This section outlines detailed functional and non-functional requirements for th
    - *Main scenario:*
       1. The server selects the highest bidder.
       2. The server sends an email to the auctioneer and highest bidder regarding the final bid price and each other's contact details.
-      3. The server publishes the highest bidder and final bid price on the auction page and adds the auction to history.   
+      3. The server publishes the highest bidder and final bid price on the auction page and adds the auction to history.
+      4. All bidders are redirected to the auction page
+
+- **Use case 5:** Exiting an auction room
+   - *Primary actor:* bidder and auctioneer
+   - *Pre-condition:* Internet connection, the user has entered the auction room
+   - *Main scenario:*
+      1. The user clicks on the exit auction button
+      2. The user is redirected to the auction page
 
 ### Bidding Functionality
    - Users shall be able to place bids on items within active auction rooms, adhering to predefined bid increments and reserve prices.
