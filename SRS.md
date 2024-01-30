@@ -72,34 +72,34 @@ This section outlines detailed functional and non-functional requirements for th
 
 ### Auction Room Management
 
-**Use case 1:** Adding items for auction
-- *Primary actor:* Auctioneer
-- *Pre-condition:* Internet connection, Auctioneer logged in
-- *Main scenario:*
-   1. The auctioneer clicks on the start new auction button.
-   2. Opens up the page to fill in auction details.
-   3. The auctioneer fills in the details of the items to be auctioned as well as the scheduled start time.
-   4. The auctioneer also mentions whether he wants the auction to be public or private
-   5. The auction is published on the website and the auctioneer is redirected to the auction page.
-   6. The notification is sent to the auctioneer 5 minutes before the scheduled start time.
-   7. If the auction is private, the notification is also sent to chosen bidders.
-   8. At the scheduled start time server starts the auction by allowing bidders to click on the enter auction room button.
+- **Use case 1:** Adding items for auction
+   - *Primary actor:* Auctioneer
+   - *Pre-condition:* Internet connection, Auctioneer logged in
+   - *Main scenario:*
+      1. The auctioneer clicks on the start new auction button.
+      2. Opens up the page to fill in auction details.
+      3. The auctioneer fills in the details of the items to be auctioned as well as the scheduled start time.
+      4. The auctioneer also mentions whether he wants the auction to be public or private
+      5. The auction is published on the website and the auctioneer is redirected to the auction page.
+      6. The notification is sent to the auctioneer 5 minutes before the scheduled start time.
+      7. If the auction is private, the notification is also sent to chosen bidders.
+      8. At the scheduled start time server starts the auction by allowing bidders to click on the enter auction room button.
 
-**Use case 2:** Entering an auction as a bidder
-- *Primary actor:* bidder
-- *Pre-condition:* Internet connection, bidder logged in
-- *Main scenario:*
-   1. The bidder clicks on enters auction button
-   2. The bidder is redirected to the auction room page where details of the auction as well as the leader board of the highest bidders will be displayed.
+- **Use case 2:** Entering an auction as a bidder
+   - *Primary actor:* bidder
+   - *Pre-condition:* Internet connection, bidder logged in
+   - *Main scenario:*
+      1. The bidder clicks on enters auction button
+      2. The bidder is redirected to the auction room page where details of the auction as well as the leader board of the highest bidders will be displayed.
 
-**Use case 3:** Make a bid
-- *Primary actor:* bidder
-- *Pre-condition:* Internet connection, bidder logged in
-- *Main scenario:*
-   1. The bidder specifies the bid price
-   2. The server accepts the bid price and updates the leaderboard accordingly.
-- *Alternate Scenario*:  
-   2a. If the bid price is less than the current highest bid price then the server informs the bidder and asks to rebid.
+- **Use case 3:** Make a bid
+   - *Primary actor:* bidder
+   - *Pre-condition:* Internet connection, bidder logged in
+   - *Main scenario:*
+      1. The bidder specifies the bid price
+      2. The server accepts the bid price and updates the leaderboard accordingly.
+   - *Alternate Scenario*:  
+      2a. If the bid price is less than the current highest bid price then the server informs the bidder and asks to rebid.
 
 ### Bidding Functionality
    - Users shall be able to place bids on items within active auction rooms, adhering to predefined bid increments and reserve prices.
