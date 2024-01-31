@@ -96,7 +96,7 @@ This section outlines detailed functional and non-functional requirements for th
 |    Function     |                    Description                     |
 | :-------------: | :------------------------------------------------: |
 |     Sign Up     | Set name, username, password, contacts, interests  |
-| Verify Account  |     Authenicate registration or password reset     |
+| Verify Account  |     Authenticate registration or password reset    |
 |     Log In      | Direct user to dashboard given correct credentials |
 |  Edit Profile   |       Allows user to edit details of profile       |
 | Forgot Password |   Allows user to reset password through contacts   |
@@ -111,128 +111,139 @@ This section outlines detailed functional and non-functional requirements for th
 |    View History    |  Allows user to view completed and scheduled auctions   |
 | View Other Profile |       Allows user to view profiles of other users       |
 
+#### Auction Room:
+
+|     Function      |                Description                 |
+| :---------------: | :----------------------------------------: |
+| Add Auction Items | Allows auctioneer to add items for auction |
+|   Enter Auction   |      Allows user to join auction room      |
+|     Make Bid      |      Allows bidder to specify a price      |
+| Complete Auction  |   Server selects and notifies the winner   |
+|   Exit Auction    |      Allows user to exit auction room      |
+
+
 #### [Authentication Use-Cases](#authentication-use-cases)
 
-- **Use Case 1**: Sign Up
+- **Use Case 1:** Sign Up
 
-  - _Primary Agent_: User
-  - _Preconditions_: None
-  - _Main Flow_:
+  - _Primary Actor:_ User
+  - _Preconditions:_ Internet connection, None
+  - _Main Success Scenario:_
     1. User enters the website and is prompted to register themself on the website as an account if they are not registered.
     2. User is asked to give mandatory details such as username, password, name, email contact etc.
     3. User is also prompted to additional details such as mobile contact details, interests etc.
     4. User submits details and waits for _verification_.
-  - _Excpetions_:
+  - _Exceptions:_
     1. User chooses an already existing username. User is then prompted to choose another username.
     2. User sets a password which has insufficient strength. User is then prompted to choose new password.
     3. Both instances of password do not match. User is then prompted to recheck passwords.
     4. All mandatory fields have not been filled. User is then prompted to fill all mandatory fields.
 
-- **Use Case 2**: Log In
+- **Use Case 2:** Log In
 
-  - _Primary Agent_: User
-  - _Preconditions_: Have a registered account
-  - _Main Flow_:
+  - _Primary Actor:_ User
+  - _Preconditions:_ Internet connection, Have a registered account
+  - _Main Success Scenario:_
     1. User enters the website and is prompted to log in if they have been registered on the website.
     2. User is prompted to enter username and password to log on to the website.
     3. If correct credentials are provided, the user is directed to their dashboard page.
-  - _Excpetions_:
+  - _Exceptions:_
     1. User enters incorrect credentials. User is then prompted to enter correct credentials.
     2. User forgets password and is prompted to the _forgot password_ routine.
 
-- **Use Case 3**: Forgot Password
+- **Use Case 3:** Forgot Password
 
-  - _Primary Agent_: Server
-  - _Preconditions_: Called when user wants to verify account after registration
-  - _Main Flow_:
+  - _Primary Actor:_ Server
+  - _Preconditions:_ Internet connection, Called when user wants to verify account after registration
+  - _Main Success Scenario:_
     1. The server sends a message via backup contacts - email or mobile.
     2. The user is prompted to click on a link from the afore-mentioned contacts to reset password.
     3. The user is then requested to confirm new password.
-  - _Exceptions_:
+  - _Exceptions:_
     1. Both instances of password do not match. User is then prompted to recheck passwords.
     2. User sets a password which has insufficient strength. User is then prompted to choose new password.
 
-- **Use Case 4**: Edit Profile
+- **Use Case 4:** Edit Profile
 
-  - _Primary Agent_: User
-  - _Preconditions_: User is logged in
-  - _Main Flow_:
+  - _Primary Actor:_ User
+  - _Preconditions:_ Internet connection, User is logged in
+  - _Main Success Scenario:_
     1. User clicks on profile details from the dashboard and chooses to edit profile details excluding username.
     2. User fills in new details in a form with details already filled in.
     3. User then submits details and profile changes are updated.
-  - _Exceptions_:
+  - _Exceptions:_
     1. Mandatory fields are not filled. User is then prompted to fill all mandatory fields.
 
-- **Use Case 5**: Verify Account
-  - _Primary Agent_: Server
-  - _Preconditions_: Called when user has completed filling registration details
-  - _Main Flow_:
+- **Use Case 5:** Verify Account
+  - _Primary Actor:_ Server
+  - _Preconditions:_ Internet connection, Called when user has completed filling registration details
+  - _Main Success Scenario:_
     1. The server sends a message via backup contacts - email or mobile.
     2. The user is prompted to click on a link to redirect themselves to the website's dashboard. The user is also automatically logged in.
-  - _Exceptions_:
+  - _Exceptions:_
     1. The link for verification has been timed out. User must re-register account.
 
 #### [Dashboard](#dashboard)
 
-- **Use Case 1**: Create Auction
+- **Use Case 1:** Create Auction
 
-  - _Primary Agent_: User
-  - _Preconditions_: User is logged in
-  - _Main Flow_:
+  - _Primary Actor:_ User
+  - _Preconditions:_ Internet connection, User is logged in
+  - _Main Success Scenario:_
     1. User chooses to create an auction and schedule it for a stipulated time.
     2. User is then directed to a page which prompts user to enter details of the auction in stages.
     3. User is first prompted to enter details for all items to be presented in the auction. Every item is provided with a name, description, relevant tags, starting price, optional clauses attached etc.
     4. User is then prompted to enter general details for the auction. Details include minimum increment for each bid, start-time, end-time, return policies and other clauses.
     5. User is finally prompted to fill a questionnaire to generate the license for the auction.
-  - _Exceptions_:
+  - _Exceptions:_
     1. Mandatory fields have not been filled. User is then prompted to fill missing mandatory fields.
     2. No items have been added. User is then prompted to add atleast one item in the auction.
     3. Time window entered has already started or passed. User is then prompted to enter a valid time-window.
 
-- **Use Case 2**: Recommendations
+- **Use Case 2:** Recommendations
 
-  - _Primary Agent_: Server
-  - _Preconditions_: User is logged in, presently at the dashboard
-  - _Main Flow_:
+  - _Primary Actor:_ Server
+  - _Preconditions:_ Internet connection, User is logged in, presently at the dashboard
+  - _Main Success Scenario:_
     1. User is shown a list of upcoming auctions which are relevant to user interests, search history, auction history etc.
     2. User can toggle _Number of Auctions per Page_ or click on _View More_ to view more auctions and their details if necessary.
     3. User can select one of the auctions to view details of all items listed on the auction.
     4. If interested and the auction is currently going on, the user can click on _Join_ to enter the virtual auction-room. The user is first shown the agreement clause to join the auction. The user must also accept the agreement clause before entering the auction-room.
-  - _Exceptions_:
+  - _Exceptions:_
     1. User does not agree to the agreement clause. The user is then prompted to agree to the clauses.
 
-- **Use Case 3**: Search Options
+- **Use Case 3:** Search Options
 
-  - _Primary Agent_: User
-  - _Preconditions_: User is logged in
-  - _Main Flow_:
+  - _Primary Actor:_ User
+  - _Preconditions:_ Internet connection, User is logged in
+  - _Main Success Scenario:_
     1. User is allowed to search for multiple relevant auctions by various fields. These fields include relevant tags, item description, start-time, end-time, starting prices, popularity (number of attendees) etc.
     2. User is then prompted to click _Search_ and is then presented with a list of relevant auctions.
     3. User can toggle _Number of Auctions per Page_ or click on _View More_ to view more auctions and their details if necessary.
     4. User can select one of the auctions to view details of all items listed on the auction.
     5. If interested and the auction is currently going on, the user can click on _Join_ to enter the virtual auction-room. The user is first shown the agreement clause to join the auction. The user must also accept the agreement clause before entering the auction-room.
-  - _Exceptions_:
+  - _Exceptions:_
     1. No search filter is applied. The user is then prompted to make atleast one field non-empty.
     2. User does not agree to the agreement clause. The user is then prompted to agree to the clauses.
     3. No match occurs. The user is shown text conveying there are no matches and prompts them to enter alternate key words.
 
-- **Use Case 4**: View Auction History
+- **Use Case 4:** View Auction History
 
-  - _Primary Agent_: User
-  - _Preconditions_: User is logged in
-  - _Main Flow_:
+  - _Primary Actor:_ User
+  - _Preconditions:_ Internet connection, User is logged in
+  - _Main Success Scenario:_
     1. User chooses to view auction history by clicking on an appropriate link from the dashboard.
     2. The user is shown a list of auctions which the user has either attended or hosted.
     3. The user can select one of the auctions and is directed to the auction page details.
     4. Details include purchases made in the auction (if any), time spent on the auction date etc. (if the user participated in said auction)
     5. Details include purchasees, amount paid for all items sold in the auction, and other details entered by the user when the auction was scheduled.
-  - _Exceptions_:
+  - _Exceptions:_
     1. No history exists. The user is prompted to search for auctions to join or is prompted to create an auction.
 
-- **Use Case 5**: View Other Profiles
-  - _Primary Agent_: User
-  - _Preconditions_: User is logged in
-  - _Main Flow_:
+- **Use Case 5:** View Other Profiles
+  - _Primary Actor:_ User
+  - _Preconditions:_ Internet connection, User is logged in
+  - _Main Success Scenario:_
     1. User can access pubic profile details by clicking usernames from auction detail pages or auction history pages.
     2. The user can access the auctions that other users have hosted or attended.
 
@@ -240,11 +251,11 @@ This section outlines detailed functional and non-functional requirements for th
 
 ### Auction Management
 
-- **Use case 1:** Adding items for auction
+- **Use Case 1:** Adding items for auction
 
-  - _Primary actor:_ Auctioneer
+  - _Primary Actor:_ Auctioneer
   - _Pre-condition:_ Internet connection, Auctioneer logged in
-  - _Main scenario:_
+  - _Main Success Scenario:_
     1. The auctioneer clicks on the start new auction button.
     2. Opens up the page to fill in auction details.
     3. The auctioneer fills in the details of the items to be auctioned as well as the scheduled start time.
@@ -254,38 +265,38 @@ This section outlines detailed functional and non-functional requirements for th
     7. If the auction is private, the notification is also sent to chosen bidders.
     8. At the scheduled start time server starts the auction by allowing bidders to click on the enter auction room button.
 
-- **Use case 2:** Entering an auction
+- **Use Case 2:** Entering an auction
 
-  - _Primary actor:_ bidder and auctioneer
+  - _Primary Actor:_ bidder and auctioneer
   - _Pre-condition:_ Internet connection, user logged in, the user is allowed to enter the auction room
-  - _Main scenario:_
+  - _Main Success Scenario:_
     1. The user clicks on enter auction button on the auction page
-    2. The bidder is redirected to the auction room page where details of the auction as well as the leader board of the highest bidders will be displayed.
+    2. The bidder is redirected to the auction room page where details of the auction as well as the leaderboard of the highest bidders will be displayed.
 
-- **Use case 3:** Make a bid
+- **Use Case 3:** Make a bid
 
-  - _Primary actor:_ bidder
+  - _Primary Actor:_ bidder
   - _Pre-condition:_ Internet connection, bidder logged in, the bidder has entered the auction room
-  - _Main scenario:_
+  - _Main Success Scenario:_
     1. The bidder specifies the bid price
     2. The server accepts the bid price and updates the leaderboard accordingly.
-  - _Alternate Scenario_:
+  - _Alternate Scenario:_
     1. If the bid price is less than the current highest bid price then the server informs the bidder and asks to rebid.
 
-- **Use case 4:** Completing an auction
+- **Use Case 4:** Completing an auction
 
-  - _Primary actor:_ Server
+  - _Primary Actor:_ Server
   - _Pre-condition:_ Internet connection, bidder logged in, scheduled end time has reached
-  - _Main scenario:_
+  - _Main Success Scenario:_
     1. The server selects the highest bidder.
     2. The server sends an email to the auctioneer and highest bidder regarding the final bid price and each other's contact details.
     3. The server publishes the highest bidder and final bid price on the auction page and adds the auction to history.
     4. All bidders are redirected to the auction page
 
-- **Use case 5:** Exiting an auction room
-  - _Primary actor:_ bidder and auctioneer
+- **Use Case 5:** Exiting an auction room
+  - _Primary Actor:_ bidder and auctioneer
   - _Pre-condition:_ Internet connection, the user has entered the auction room
-  - _Main scenario:_
+  - _Main Success Scenario:_
     1. The user clicks on the exit auction button
     2. The user is redirected to the auction page
 
