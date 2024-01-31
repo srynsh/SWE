@@ -1,7 +1,7 @@
 ---
 title: (G3) SRS for Auction Site
 author: Suryaansh Jain, Rishit D, Rajiv Chitale, Anshul Sangrame
-...
+---
 
 # [Introduction](#introduction)
 
