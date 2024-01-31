@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = "Backend for Cab Sharing Portal, IITH"
+authors = ["Rachit Keerti Das <cs19btech11034@iith.ac.in>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9 < 3.11"
+fastapi = "^0.78.0"
+pydantic = "^1.9.1"
+psycopg2-binary = "^2.9.3"
+uvicorn = {extras = ["standard"], version = "^0.17.6"}
+python-dotenv = "^0.20.0"
+aiosql = "^3.4.1"
+google-auth = "^2.9.1"
+requests = "^2.28.1"
+flake8 = "^5.0.4"
+mypy = "^0.971"
+html2text = "^2020.1.16"
+pytz = "^2023.3.post1"
+gunicorn = "^21.2.0"
+
+[tool.poetry.dev-dependencies]
+isort = "^5.10.1"
+black = "^22.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
