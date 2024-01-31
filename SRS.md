@@ -320,13 +320,14 @@ This section outlines detailed functional and non-functional requirements for th
 ## [Performance Requirements](#performance-requirements)
 
 - The system shall support a minimum of 1000 concurrent users during peak usage periods.
-- Response times for critical operations, such as bid placement and auction room creation, shall not exceed 3 seconds under normal load conditions.
+- Response times for critical operations, such as bid placement and auction room creation, shall not exceed 0.5 seconds under normal load conditions.
 - The platform shall be scalable and capable of handling increased user traffic and auction activity without degradation in performance.
 
 ## [Design Constraints](#design-constraints)
 
-- The system architecture shall adhere to industry best practices and standards for web application development, including RESTful APIs, MVC architecture, and modular design principles.
-- Compliance with relevant data protection regulations, including GDPR and CCPA, shall be ensured through robust data encryption, access controls, and user consent mechanisms.
+- *Security*: The system shall implement robust security measures to protect user data and prevent unauthorized access. 
+- *Fault Tolerance*: The system shall be designed to handle unexpected errors and failures, with appropriate error handling and recovery mechanisms. The Auction data for an ongoing auction must be preserved to ensure that the auction can be resumed in case of a server failure.
+- *Prevent Robot Bidding*: The system shall implement mechanisms to prevent robot bidding.
 
 # [Future Extensions](#future-extensions)
 
@@ -335,7 +336,8 @@ This section identifies potential enhancements and future development opportunit
 - Integration with third-party payment gateways for secure transaction processing.
 - Implementation of advanced analytics and reporting tools for auction performance analysis.
 - Expansion of recommendation systems to incorporate machine learning algorithms and collaborative filtering techniques.
-- Integration with social media platforms
+- Integration with social media platforms.
+- Add cryptocurrency payment options for anonymous transactions and auction participation.
 
 for enhanced user engagement and marketing opportunities.
 
