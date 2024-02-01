@@ -367,13 +367,3 @@ This appendix contains mockups of user interface screens for reference, includin
 ![Create Auction](./diagrams/create_auction.jpeg)
 
 ![User Dashboard](./diagrams/dashboard.jpeg)
-
-## [Appendix B: Context Diagrams](#appendix-b-context-diagrams)
-
-This apendix contains context diagrams to denote the general flow when use cases are triggered in the web application.
-
-![Profile](./diagrams/ProfileManagementCD.jpg)
-
-![Dashboard](./diagrams/DashboardCD.jpg)
-
-![Auction Room](./diagrams/AuctionRoomCD.jpg)

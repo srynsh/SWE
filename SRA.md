@@ -1,7 +1,7 @@
 ---
 title: (G3) SRA for Auction Site
 author: Suryaansh Jain, Rishit D, Rajiv Chitale, Anshul Sangrame
-geometry: margin=2cm
+geometry: margin=1.5cm
 --- 
 
 # Function Point Analysis
@@ -85,7 +85,13 @@ FP = 99.84
 # Context Diagram
 
 A high level overview of the system is shown:  
-![Context Diagram](./diagrams/context1.png)
+![Context Diagram](./diagrams/context1.png)  
+
+![Profile](./diagrams/ProfileManagementCD.jpg)  
+
+![Dashboard](./diagrams/DashboardCD.jpg)  
+
+![Auction Room](./diagrams/AuctionRoomCD.jpg)  
 
 # Data Flow Diagram
 
