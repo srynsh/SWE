@@ -39,13 +39,13 @@ Table below gives the description of each component and its type, complexity and
 | Edit Profile        | Allows user to edit details of profile                  |  EI  |    Avg     |   4    |
 | Forgot Password     | Allows user to reset password through contacts          |  EI  |    Low     |   3    |
 | Create Auction      | List items + clauses and schedule auction time          |  EI  |    High    |   6    |
-| Recommendations    | Provides user with auctions user might be interested in |  EO  |    Avg     |   5    |
+| Recommendations    | Provides user with auctions user might be interested in |  EO  |    High    |   7    |
 | Search Options      | Allows user to search by tags, description, time, price |  EQ  |    High    |   6    |
 | View History        | Allows user to view completed and scheduled auctions    |  EO  |    Avg     |   5    |
 | View Other Profile  | Allows user to view profiles of other users             |  EQ  |    Avg     |   4    |
-| Add Auction Items   | Allows auctioneer to add items for auction              |  EI  |    Avg     |   4    |
+| Add Auction Items   | Allows auctioneer to add items for auction              |  EI  |    High    |   6    |
 | Enter Auction       | Allows user to join auction room                        |  EO  |    High    |   7    |
-| Make Bid            | Allows bidder to specify a price                         |  EI  |    Low     |   3    |
+| Make Bid            | Allows bidder to specify a price                         |  EI  |    High    |   6    |
 | Complete Auction    | Server selects and notifies the winner                  |  EO  |    Avg     |   5    |
 | Exit Auction        | Allows user to exit auction room                         |  EI  |    Low     |   3    |
 | Users File          | Contains user login details                              | LIF  |    Low     |   5    |
@@ -54,7 +54,7 @@ Table below gives the description of each component and its type, complexity and
 | Auction Items File  | Contains description for auction items                   | LIF  |    Avg     |   10   |
 
 
-UPF = 96  
+UPF = Fill
 
 The Complexity Adjustment Factor (CAF) is calculated as follows:  
 CAF = 0.65 + 0.01 * $\sum_{i=1}^{14} f_{i}$
