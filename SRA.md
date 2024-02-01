@@ -25,7 +25,7 @@ The matrix given below contains weights used for FPA.
 | External Inquiry (EQ)         | 3   | 4   | 6    |
 
 
-Table below gives the description of each component and its type, complexity and weight.
+Table below gives the description of each component and its type, complexity and weight. The complexity was determined by the File Type Referenced (FTR) and number of Data Elements (DET).
 
 | Component           | Description                                             | Type | Complexity | Weight |
 |---------------------|---------------------------------------------------------|------|------------|--------|
@@ -93,10 +93,18 @@ A high level overview of the system is shown:
 
 ![Auction Room](./diagrams/AuctionRoomCD.jpg)  
 
-# Data Flow Diagram
+# Data Flow Diagram 1
 
 ![Data Flow Diagram](./diagrams/dfd.jpg) 
 
-# Data Flow Diagram (Alternate)
+# Data Flow Diagram 2
 
 ![Data Flow Diagram](./diagrams/dfd2.jpg) 
+
+# Selecting Data Flow Diagram
+Data Flow Diagram 2 was selected becuase it provides:
+- Separate tables for storing auction data and item data
+- Specialized functions for bidder and auctioneer
+- Dynamic updation of interests based when joining rooms.
+- More detailed inputs (eg: make bid takes highest bid from auction database)
+- More detailed outputs (eg: updating history after entering auction room)
