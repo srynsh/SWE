@@ -96,7 +96,7 @@ We list our final factored modules in the table below with corresponding type of
 |   Get Current Time        |   Input           | Functional            |        25         | **
 |   Get Leaderboard (abrupt)|   Composite       | Temporal/Sequential   |        50         | 
 |   Query for End Auction   |   Transform       | Logical/Temporal      |       100         |
-|   Exec Query End Auction  |   Transform       | Logical/Temporal/Fnl  |       100         | **
+|   Exec Query End A uction  |   Transform       | Logical/Temporal/Fnl  |       100         | **
 |   Add Item (DB)           |   Output          | Functional            |       100         | **
 |   Get Highest Bid         |   Composite       | Communicational/Fnl   |        50         |
 |   Query for Highest Bid   |   Transform       | Functional            |        50         |
@@ -230,7 +230,8 @@ We now provide a brief justification for the type of cohesion and coupling expec
     This module is a simple output module that updates the winners of auctions to the database after the end of the auction. As a result, this module is functionally cohesive and is loosely coupled with the main module.\
 
 ## Module Count
-The following table summarizes the instances of each module type:\
+The following table summarizes the instances of each module type:
+
 |   Module Type     | Count |
 | ----------------- | ----- |
 |   Input           |  10   |
