@@ -136,56 +136,73 @@ We now provide a brief justification for the type of cohesion and coupling expec
     This module executes the above query.\\
 
 - **Update Leaderboard for Bid**:
-    This module serves as the central module for the subsystem described in (3). We also comment the that  \
+    This module serves as the central module for the subsystem described in (3). We also comment this module has added bit of complexity due to the conditional invoking of the subsequent module to update the leader board. The following 2 modules are subordinate modules.\
 - **Check User with Greater Bid**:
-    \
+    This module checks if the user has a bid greater than the present highest bid.\
 - **Update Leaderboard with Bid**:
-    \\
+    This module is conditionally activated when the user's bid is the new highest bid appropriately updates the database.\\
 
 - **Get Username**:
-    \
+    This module is responsible for retrieving the username of the user from their respective tokens. This module calls a subordinate routine to receive an ecncryption key to decode the token. In this sense, this structure is similar to the subsystem described in (1) with the expection that it always receives a key from the subordinate query routine.\
 - **Get Encryption Key**:
-    \
+    This module serves as a query routine although it is strictly an input module.\
 - **Decrypt Token**:
-    \\
+    This module "executes" the above query in the form decryption.\\
 
 - **Update Interest**:
-    \\
+    This module is a simple output module that updates the present interests of the user. This module is therefore functionally cohesive and has minimal coupling with the main module.\\
 
 - **Get Leaderboard for View**:
-    \
+    This module serves as a central module for the Query Triad System with the subsequent two modules serving as its subordinates.\
 - **Query for Leaderboard**:
-    \
+    This module frames the query for the leaderboard module.\
 - **Execute Query for Leaderboard**:
-    \\
+    This module executes the above query framed.\\
 
 - **Get Auction Item List**:
-    \
+    This module serves as a central module for the Query Triad System with the subsequent two modules serving as its subordinates.\
 - **Query for Item List**:
-    \
+    This module frames the query to fetch item list related to the auction.\
 - **Execute Query for Item List**:
-    \\
+    This module executes the above query to provide all prospective items in an auction.\\
 
 - **Update Auction History**:
-    \\
+    This module is a simple output module that updates the auction history of the user who has executed a successful bid. This module is again functionally cohesive and has low coupling with the main module.\\
 
 - **Display for Auction Room**:
-    \
+    This module is repsonsible for constructing views for interested bidders. We factor this composite module into smaller independent portions to remove unnecessary coupling with its subordinates. This module is functionally cohesive and remains virtually independent during the time of the auction.\
 - **Display Item List**:
-    \
+    This module fetches the item list for the auction through call routines to individual lists as described below.\
 - **Display Item**:
-    \
+    This module displays an item object with its full description to the user including its current status of sale.\
 - **Display Leaderboard**:
-    \\
+    This module highlights the current bids placed by interested bidders.\\
 
 - **Notify Winner**:
-    \
+    This module serves as the central module described in subsystem (3) with the following two modules as its subordinates.\
 - **Email Template**:
-    \
+    This module frames the template inlcluding the body of the letter along with the parameters concerning the winner of the auction.\
 - **Send Email**:
-    \\
+    This output module serves as an "update" as it sends the email to the appropriate address.\\
 
 - **Store Auction End**:
-    \\
+    This module is a simple output module that updates the winners of auctions to the database after the end of the auction. As a result, this module is functionally cohesive and is loosely coupled with the main module.\\
 
+## Module Count
+The following table summarizes the instances of each module type
+|   Module Type     | Count |
+| ----------------- | ----- |
+|   Input           |  10   |
+|   Output          |    8  |
+|   Transform       |12|
+|   Coordinate      | 2      |
+|   Composite       |  9     |
+
+## Error Prone Modules
+
+**Input Module**:\
+
+**Output Module**:\
+
+**Transform Module**
 
