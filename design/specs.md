@@ -78,37 +78,37 @@ We list our final factored modules in the table below with corresponding type of
 | Store Token in Browser    |   Output          | Functional            |         50        | 
 | Display Sign-In Failure   |   Output          | Functional            |         50        | 
 
-
-| Get Auction ID (from url)     |   Input           | Functional        |                   |
-| Fetch Auction Details         |   Transform       | Functional        |                   |
-| Display Auction Details       |   Output          | Functional        |                   |
-| Display item name             |   Output          | Functional        |                   |
-| Display item type             |   Output          | Functional        |                   |
-| Display item image            |   Output          | Functional        |                   |
-| Display auction host name     |   Output          | Functional        |                   |
-| Display auction start time    |   Output          | Functional        |                   |
-| Get Search Terms              |   Input           | Functional        |                   |
-| Get tag                       |   Input           | Functional        |                   |
-| Get filter username           |   Input           | Functional        |                   |
-| Get filter item name          |   Input           | Functional        |                   |
-| Fetching matching auctions    |   Composite       | Functional        |                   |
-| Form query - matching auction |   Transform       | Functional        |                   |
-| Execute query-matching auction|   Transform       | Functional        |                   |
-| Display Search Results        |   Output          | Functional        |                   |
-| Get Auction Details           |   Input           | Functional        |                   |
-| Add Auction                   |   Output          | Functional        |                   |
-| Get token from browser        |   Input           | Functional        |                   |
-| Get username from token       |   Transform       | Functional        |                   |
-| Get server encryption key from .env file |   Input| Functional        |                   |
-| Decrypt token                 |   Transform       | Functional        |                   |
-| Fetch Auction History         |   Transform       | Functional        |                   |
-| Display Auction History       |   Output          | Functional        |                   |
-| Fetch User Interests          |   Transform       | Functional        |                   |
-| Recommend Auctions via KNN    |   Transform       | Functional        |                   |
-| Display Recommended Auctions  |   Output          | Functional        |                   |
-| Get Username (from url)       |   Input           | Functional        |                   |
-| Fetch User Profile            |   Transform       | Functional        |                   |
-| Display User Profile          |   Output          | Functional        |                   |
+|   Module Name                 |   Module Type     |   Cohesion Type   |   Estimated Size  |
+| ----------------------------- | ----------------- | ----------------- | ----------------- |
+| Get Auction ID (from url)     |   Input           | Functional        |          50       |
+| Fetch Auction Details         |   Transform       | Functional        |          100         |
+| Display Auction Details       |   Output          | Functional        |         250          |
+| Display item name             |   Output          | Functional        |             250      |
+| Display item type             |   Output          | Functional        |               250    |
+| Display item image            |   Output          | Functional        |            250       |
+| Display auction host name     |   Output          | Functional        |            250     |
+| Display auction start time    |   Output          | Functional        |           250      |
+| Get Search Terms              |   Input           | Functional        |           50      |
+| Get tag                       |   Input           | Functional        |           50      |
+| Get filter username           |   Input           | Functional        |          100      |
+| Get filter item name          |   Input           | Functional        |          100       |
+| Fetching matching auctions    |   Composite       | Functional        |          150       |
+| Form query - matching auction |   Transform       | Functional        |         250       |
+| Execute query-matching auction|   Transform       | Functional        |         250       |
+| Display Search Results        |   Output          | Functional        |          250       |
+| Get Auction Details           |   Input           | Functional        |          150       |
+| Add Auction                   |   Output          | Functional        |         150        |
+| Get token from browser        |   Input           | Functional        |          50       |
+| Get username from token       |   Transform       | Functional        |         100        |
+| Decrypt token                 |   Transform       | Functional        |         50       |
+| Fetch Auction History         |   Transform       | Functional        |         150       |
+| Display Auction History       |   Output          | Functional        |         150        |
+| Fetch User Interests          |   Transform       | Functional        |         50       |
+| Recommend Auctions via KNN    |   Transform       | Functional        |         500       |
+| Display Recommended Auctions  |   Output          | Functional        |         500        |
+| Get Username (from url)       |   Input           | Functional        |         50        |
+| Fetch User Profile            |   Transform       | Functional        |        100         |
+| Display User Profile          |   Output          | Functional        |        250        |
 
 
 |   Module Name             |   Module Type     |   Cohesion Type       |   Estimated Size  |
@@ -270,6 +270,71 @@ The following table summarizes the instances of each module type:
 |   Transform       |12     |
 |   Coordinate      | 2     |
 |   Composite       |  9    |
+
+## Module Interfaces
+
+```cpp
+class auction {
+    uuid id;
+    uuid creator;
+    time start_time;
+    time end_time;
+    int start_price;
+    int current_price;
+    int min_increment;
+    bool visiblity;
+    uuid key;
+    int time_since_last_bid;
+    uuid winner;
+    vector<int> tags;
+    string name;
+    string description;
+    string image;
+    vector<pair<uuid, int>> bids;
+
+    void init(
+        int start_price, 
+        int min_increment, 
+        time start_time, 
+        time end_time, 
+        bool visiblity, 
+        uuid creator, 
+        vector<int> tags
+        );
+    int get_current_price();
+    int set_current_price(int price);
+    bool get_visiblity();
+    bool check_key(uuid key);
+};
+
+class user {
+    uuid id;
+    string name;
+    string email;
+    string password;
+    string phone;
+
+    void init(string name, string email, string password, string phone);
+    vector<uuid> get_all_created_auctions;
+    vector<uuid> get_all_bidded_auctions;
+    vector<uuid> generate_auctions(int count);
+    uuid create_auction(
+        int start_price, 
+        int min_increment, 
+        time start_time, 
+        time end_time, 
+        bool visiblity, 
+        vector<int> tags
+        );
+    bool bid(uuid auction_id, int price, uuid key);
+    bool delete_auction(uuid auction_id);
+    bool edit_name(string name);
+    bool edit_email(string email);
+    bool edit_password(string password);
+    bool edit_phone(string phone);
+};
+```
+
 
 ## Error Prone Modules
 
