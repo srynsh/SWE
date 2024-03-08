@@ -79,6 +79,37 @@ We list our final factored modules in the table below with corresponding type of
 | Display Sign-In Failure   |   Output          | Functional            |         50        | 
 
 
+| Get Auction ID (from url)     |   Input           | Functional        |                   |
+| Fetch Auction Details         |   Transform       | Functional        |                   |
+| Display Auction Details       |   Output          | Functional        |                   |
+| Display item name             |   Output          | Functional        |                   |
+| Display item type             |   Output          | Functional        |                   |
+| Display item image            |   Output          | Functional        |                   |
+| Display auction host name     |   Output          | Functional        |                   |
+| Display auction start time    |   Output          | Functional        |                   |
+| Get Search Terms              |   Input           | Functional        |                   |
+| Get tag                       |   Input           | Functional        |                   |
+| Get filter username           |   Input           | Functional        |                   |
+| Get filter item name          |   Input           | Functional        |                   |
+| Fetching matching auctions    |   Composite       | Functional        |                   |
+| Form query - matching auction |   Transform       | Functional        |                   |
+| Execute query-matching auction|   Transform       | Functional        |                   |
+| Display Search Results        |   Output          | Functional        |                   |
+| Get Auction Details           |   Input           | Functional        |                   |
+| Add Auction                   |   Output          | Functional        |                   |
+| Get token from browser        |   Input           | Functional        |                   |
+| Get username from token       |   Transform       | Functional        |                   |
+| Get server encryption key from .env file |   Input| Functional        |                   |
+| Decrypt token                 |   Transform       | Functional        |                   |
+| Fetch Auction History         |   Transform       | Functional        |                   |
+| Display Auction History       |   Output          | Functional        |                   |
+| Fetch User Interests          |   Transform       | Functional        |                   |
+| Recommend Auctions via KNN    |   Transform       | Functional        |                   |
+| Display Recommended Auctions  |   Output          | Functional        |                   |
+| Get Username (from url)       |   Input           | Functional        |                   |
+| Fetch User Profile            |   Transform       | Functional        |                   |
+| Display User Profile          |   Output          | Functional        |                   |
+
 
 |   Module Name             |   Module Type     |   Cohesion Type       |   Estimated Size  |
 | -----------------         | ----------------- | -----------------     | ----------------- |
