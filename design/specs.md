@@ -48,84 +48,77 @@ We list our final factored modules in the table below with corresponding type of
 
 |   Module Name             |   Module Type     |   Cohesion Type       |   Estimated Size  |
 | -----------------         | ----------------- | -----------------     | ----------------- |
-| Decrypt+Verify Reset Link |   Input           | Functional            |                   |  
-| Get New Password          |   Input           | Functional            |                   |
-| Reset Password            |   Coordination    | Functional            |                   |  
-| Verify Password Strength  |   Input           | Functional            |                   |
-| Update Password           |   Output          | Functional            |                   | 
-| Confirm Reset Status      |   Output          | Functional            |                   | 
-| Get contact (email)       |   Input           | Functional            |                   |
-| Send Reset Link           |   Output          | Functional            |                   | 
-| Get new profile details   |   Input           | Functional            |                   |
-| Get Location              |   Input           | Functional            |                   |
-| Get Age                   |   Input           | Functional            |                   |
-| Get Topics of Interest    |   Input           | Functional            |                   |
-| Get Sign Up Details       |   Input           | Functional            |                   |
-| Get Username              |   Input           | Functional            |                   |
-| Get New Password          |   Input           | Functional            |                   |
-| Get Contact               |   Input           | Functional            |                   |
-| Sign Up                   |   Transform       | Functional            |                   |
-| Check If Username Exists  |   Transform       | Functional            |                   |
-| Verify Password Strength  |   Transform       | Functional            |                   |
-| Check Length              |   Transform       | Functional            |                   |
-| Check Symbols             |   Transform       | Functional            |                   |
-| Hash Password             |   Transform       | Functional            |                   |
-| Insert User Details       |   Output          | Functional            |                   | 
-| Display Sign Up Status    |   Output          | Functional            |                   | 
-| Send Verification email   |   Output          | Functional            |                   | 
-| Get Sign-In Details       |   Input           | Functional            |                   |
-| Verify Sign-In            |   Transform       | Functional            |                   |
-| Hash Received Password    |   Transform       | Functional            |                   |
-| Retrieve Credentials      |   Input           | Functional            |                   |
-| Generate Token or Failure |   Output          | Functional            |                   | 
-| Store Token in Browser    |   Output          | Functional            |                   | 
-| Display Sign-In Failure   |   Output          | Functional            |                   | 
+| Decrypt+Verify Reset Link |   Input           | Functional            |        50         |  
+| Get New Password          |   Input           | Functional            |        50         |
+| Reset Password            |   Coordination    | Functional            |        50         |  
+| Verify Password Strength  |   Input           | Functional            |        20         |
+| Update Password           |   Output          | Functional            |        50         | 
+| Confirm Reset Status      |   Output          | Functional            |        25         | 
+| Get contact (email)       |   Input           | Functional            |        50         |
+| Send Reset Link           |   Output          | Functional            |        75         | 
+| Get new profile details   |   Input           | Functional            |        100        |
+| Get Location              |   Input           | Functional            |         25        |
+| Get Age                   |   Input           | Functional            |         25        |
+| Get Topics of Interest    |   Input           | Functional            |         50        |
+| Get Sign Up Details       |   Input           | Functional            |        100        |
+| Get Username              |   Input           | Functional            |         25        |
+| Get New Password          |   Input           | Functional            |         25        |
+| Get Contact               |   Input           | Functional            |         25        |
+| Sign Up                   |   Transform       | Functional            |         50        |
+| Check If Username Exists  |   Transform       | Functional            |         50        |
+| Check Length              |   Transform       | Functional            |         15        |
+| Check Symbols             |   Transform       | Functional            |         15        |
+| Hash Password             |   Transform       | Functional            |         15        |
+| Insert User Details       |   Output          | Functional            |         50        | 
+| Display Sign Up Status    |   Output          | Functional            |        150        | 
+| Get Sign-In Details       |   Input           | Functional            |        150        |
+| Verify Sign-In            |   Transform       | Functional            |         50        |
+| Retrieve Credentials      |   Input           | Functional            |         50        |
+| Generate Token or Failure |   Output          | Functional            |        150        | 
+| Store Token in Browser    |   Output          | Functional            |         50        | 
+| Display Sign-In Failure   |   Output          | Functional            |         50        | 
 
 
 
 |   Module Name             |   Module Type     |   Cohesion Type       |   Estimated Size  |
 | -----------------         | ----------------- | -----------------     | ----------------- |
 |   Bid Main                |   Composite       | Functional            |                   |
-|   Get Bid Price           |   Input           | Functional            |                   |
-|   Get Auction ID (URL)    |   Input           | Functional            |                   |
-|   Positive Bid            |   Transform       | Logical               |                   | **
+|   Get Bid Price           |   Input           | Functional            |        25         |
+|   Get Auction ID (URL)    |   Input           | Functional            |        25         |
+|   Positive Bid            |   Transform       | Logical               |        25         | **
 |   Item Main               |   Composite       | Functional            |                   |
-|   Get Item Name           |   Input           | Functional            |                   |
-|   Get Item Tag            |   Input           | Functional            |                   |
-|   Get Item Image          |   Input           | Functional            |                   | 
-|   Get Item St Price       |   Input           | Functional            |                   | **
-|   Get Auth Token          |   Input           | Functional            |                   | **
-|   Get Auction ID (Room)   |   Input           | Functional            |                   | **
-|   Get Current Time        |   Input           | Functional            |                   | **
-|   Get Leaderboard (abrupt)|   Composite       | Temporal/Sequential   |                   | 
-|   Query for End Auction   |   Transform       | Logical/Temporal      |                   |
-|   Exec Query End Auction  |   Transform       | Logical/Temporal/Fnl  |                   | **
-|   Add Item (DB)           |   Output          | Functional            |                   | **
-|   Get Highest Bid         |   Composite       | Communicational/Fnl   |                   |
-|   Query for Highest Bid   |   Transform       | Functional            |                   |
-|   Exec Query Highest Bid  |   Transform       | Functional            |                   | **
-|   Update Leaderboard      |   Composite       | Logical/Functional    |                   |
-|   Check Greater User      |   Transform       | Logical/Functional    |                   |
-|   Update Leaderboard Bids |   Output          | Functional            |                   | **
-|   Get Username            |   Composite       | Functional            |                   |
-|   Get Encryption Key      |   Input           | Functional            |                   |
-|   Decrypt Token           |   Transform       | Functional            |                   | **
-|   Update Interest         |   Output          | Functional            |                   | **
-|   Get Leaderboard         |   Composite       | Functional            |                   |
-|   Query for Leaderboard   |   Transform       | Functional            |                   |
-|   Exec Leaderboard Query  |   Transform       | Functional            |                   | **
-|   Get Auction Item List   |   Composite       | Functional            |                   |
-|   Query for Item List     |   Transform       | Functional            |                   |
-|   Exec Query for Item List|   Transform       | Functional            |                   | **
-|   Display for Auction Room|   Coordination    | Functional            |                   |
-|   Display Item List       |   Coordination    | Functional/Temporal   |                   |
-|   Display Item            |   Output          | Functional            |                   |
-|   Display Leader Board    |   Output          | Functional            |                   | **
-|   Update Auction History  |   Output          | Functional            |                   | **
-|   Notify Winner           |   Composite       | Functional            |                   |
-|   Email Template          |   Transform       | Functional            |                   |
-|   Send Email              |   Output          | Functional            |                   | **
-|   Store Auction End       |   Output          | Functional            |                   | **
+|   Get Item Name           |   Input           | Functional            |        25         |
+|   Get Item Tag            |   Input           | Functional            |        25         |
+|   Get Item Image          |   Input           | Functional            |        25         | 
+|   Get Item St Price       |   Input           | Functional            |        25         | **
+|   Get Auth Token          |   Input           | Functional            |        25         | **
+|   Get Auction ID (Room)   |   Input           | Functional            |        25         | **
+|   Get Current Time        |   Input           | Functional            |        25         | **
+|   Get Leaderboard (abrupt)|   Composite       | Temporal/Sequential   |        50         | 
+|   Query for End Auction   |   Transform       | Logical/Temporal      |       100         |
+|   Exec Query End Auction  |   Transform       | Logical/Temporal/Fnl  |       100         | **
+|   Add Item (DB)           |   Output          | Functional            |       100         | **
+|   Get Highest Bid         |   Composite       | Communicational/Fnl   |        50         |
+|   Query for Highest Bid   |   Transform       | Functional            |        50         |
+|   Exec Query Highest Bid  |   Transform       | Functional            |       100         | **
+|   Update Leaderboard      |   Composite       | Logical/Functional    |        50         |
+|   Check Greater User      |   Transform       | Logical/Functional    |        50         |
+|   Update Leaderboard Bids |   Output          | Functional            |       100         | **
+|   Get Username            |   Composite       | Functional            |        50         |
+|   Get Encryption Key      |   Input           | Functional            |        50         |
+|   Decrypt Token           |   Transform       | Functional            |        50         | **
+|   Update Interest         |   Output          | Functional            |        50         | **
+|   Query for Leaderboard   |   Transform       | Functional            |        50         |
+|   Exec Leaderboard Query  |   Transform       | Functional            |        50         | **
+|   Get Auction Item List   |   Composite       | Functional            |       100         |
+|   Query for Item List     |   Transform       | Functional            |       100         |
+|   Exec Query for Item List|   Transform       | Functional            |        50         | **
+|   Display for Auction Room|   Coordination    | Functional            |       250         |
+|   Display Item List       |   Coordination    | Functional/Temporal   |       250         |
+|   Display Item            |   Output          | Functional            |       250         |
+|   Display Leader Board    |   Output          | Functional            |       250         | **
+|   Update Auction History  |   Output          | Functional            |       150         | **
+|   Store Auction End       |   Output          | Functional            |       150         | **
 
 ## Module Justifications
 In general we can observe a few trends that can characterized as follows:\
